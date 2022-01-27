@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router,Routes, Route, Switch} from 'react-router-dom';
+import { BrowserRouter as Router,Routes, Route} from 'react-router-dom';
 import PomodoroClock from '../01-Pomodoro-Clock/PomodoroClock';
 import ColorCycle from '../02-Color-Cycle/ColorCycle';
 import JsonCsv from '../03-JSON2CSV/JsonCsv';
