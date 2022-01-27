@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router,Routes, Route} from 'react-router-dom';
+import { BrowserRouter as Router,Routes, Route, Switch} from 'react-router-dom';
 import PomodoroClock from '../01-Pomodoro-Clock/PomodoroClock';
 import ColorCycle from '../02-Color-Cycle/ColorCycle';
 import JsonCsv from '../03-JSON2CSV/JsonCsv';
@@ -18,24 +18,44 @@ const HomePage = () =>{
 
 const Home = () => {
   return (
-      <Router >
-          <Nav />
+    <Router>
+      <Nav />
       <Routes>
-          <Route exact path="/" element={<HomePage />} ></Route>
-          <Route exact path='/PomodoroClock' element={< PomodoroClock />}></Route>
-          <Route exact path='/ColorCycle' element={< ColorCycle />}></Route>
-          <Route exact path='/JsonCsv' element={< JsonCsv />}></Route>
-          <Route exact path='/QRCodeBadge' element={< QRCodeBadge />}></Route>
-          <Route exact path='/markdownpreview' element={< MarkdownPreview/>}></Route>
-          <Route exact path='/TypingPractice' element={< TypingPractice />}></Route>
-          <Route exact path='/CalculatorCLI' element={< CalculatorCLI />}></Route>
-          <Route exact path='/GithubTimeline' element={< GithubTimeline/>}></Route>
-          <Route exact path='/BooleBot' element={< BooleBot />}></Route>
-          <Route exact path='/SpellIt' element={<SpellIt/>}></Route>
-          <Route path="*" element={<HomePage />} ></Route>
-
+    
+          <Route exact path="/" element={<HomePage />}></Route>
+          <Route
+            
+            path="/PomodoroClock"
+            element={<PomodoroClock />}
+          ></Route>
+          <Route  path="/ColorCycle" element={<ColorCycle />}></Route>
+          <Route  path="/JsonCsv" element={<JsonCsv />}></Route>
+          <Route  path="/QRCodeBadge" element={<QRCodeBadge />}></Route>
+          <Route
+            
+            path="/markdownpreview"
+            element={<MarkdownPreview />}
+          ></Route>
+          <Route
+            
+            path="/TypingPractice"
+            element={<TypingPractice />}
+          ></Route>
+          <Route
+            
+            path="/CalculatorCLI"
+            element={<CalculatorCLI />}
+          ></Route>
+          <Route
+            
+            path="/GithubTimeline"
+            element={<GithubTimeline />}
+          ></Route>
+          <Route  path="/BooleBot" element={<BooleBot />}></Route>
+          <Route  path="/SpellIt" element={<SpellIt />}></Route>
+          <Route path="*" element={<HomePage />}></Route>
       </Routes>
-      </Router>
-      );
+    </Router>
+  );
 }
 export default Home;
