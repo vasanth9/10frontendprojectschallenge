@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router,Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router,Routes, Route} from 'react-router-dom';
 import PomodoroClock from '../01-Pomodoro-Clock/PomodoroClock';
 import ColorCycle from '../02-Color-Cycle/ColorCycle';
 import JsonCsv from '../03-JSON2CSV/JsonCsv';
@@ -10,48 +10,16 @@ import CalculatorCLI from '../07-Calculator-CLI/CalculatorCLI';
 import GithubTimeline from '../08-Github-Timeline/GithubTimeline';
 import BooleBot from '../09-Boole-Bot-Game/BooleBot';
 import SpellIt from '../10-SpellIt/SpellIt';
-
+import Nav from './Nav';
 
 const HomePage = () =>{
     return <div>HomePage</div>
 }
 
 const Home = () => {
-  return (<div>
+  return (
       <Router >
-      <ul>
-          <li>
-              <Link to='/PomodoroClock'>PomodoroClock</Link>
-          </li>
-          <li>
-              <Link to='/ColorCycle'>ColorCycle</Link>
-          </li>
-          <li>
-              <Link to='/JsonCsv'>JsonCsv </Link>
-          </li>
-          <li>
-              <Link to='/QRCodeBadge'>QRCodeBadge</Link>
-          </li>
-          <li>
-              <Link to='/markdownpreview'>MarkdownPreview</Link>
-          </li>
-          <li>
-              <Link to='/TypingPractice'>TypingPractice</Link>
-          </li>
-          <li>
-              <Link to='/CalculatorCLI'>CalculatorCLI</Link>
-          </li>
-          <li>
-              <Link to='/GithubTimeline'>GithubTimeline</Link>
-          </li>
-          <li>
-              <Link to='/BooleBot'>BooleBot</Link>
-          </li>
-          <li>
-              <Link to='/SpellIt'>SpellIt</Link>
-          </li>
-      
-      </ul>
+          <Nav />
       <Routes>
           <Route exact path="/" element={<HomePage />} ></Route>
           <Route exact path='/PomodoroClock' element={< PomodoroClock />}></Route>
@@ -64,9 +32,10 @@ const Home = () => {
           <Route exact path='/GithubTimeline' element={< GithubTimeline/>}></Route>
           <Route exact path='/BooleBot' element={< BooleBot />}></Route>
           <Route exact path='/SpellIt' element={<SpellIt/>}></Route>
+          <Route path="*" element={<HomePage />} ></Route>
 
       </Routes>
       </Router>
-      </div>);
+      );
 }
 export default Home;
