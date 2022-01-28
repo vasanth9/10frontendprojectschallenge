@@ -1,7 +1,9 @@
 import React from 'react';
-
+import Timer from './Timer';
 const PomodoroClock = () => {
-  return <h1>PomodoroClock</h1>;
+  return (<>
+  <Timer />
+  </>);
 }
 
 export default PomodoroClock;
