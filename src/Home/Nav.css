@@ -24,6 +24,7 @@
   color: #f6eefd;
   text-decoration: none;
   margin:10px;
+  cursor: pointer;
 }
 .nav-link:hover{
     color:rgb(0, 0, 0);
