@@ -1,0 +1,12 @@
+.pomodoro-timer{
+    font-size: 10vw;
+    color:green;
+    white-space: nowrap;
+    text-align: center;
+}
+.pomo-card{
+    margin-top: 10vh;
+    margin-left: 20vw;
+    width: 60vw;
+    background-color: rgb(255, 255, 255);
+}

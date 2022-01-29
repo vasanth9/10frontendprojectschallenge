@@ -1,10 +1,16 @@
-import React, { useState } from 'react';
+import React from "react";
+import "bootstrap/dist/css/bootstrap.css";
+// import { Button, Card, Col, Row } from "react-bootstrap";
 
-const Timer = () => {
-  const [time, setTime]= useState(25*60);
-  setTimeout(() => {
-      setTime(time-1);
-  }, 1000);
-  return <h1>{`${Math.floor(time/60).toString().padStart(2,0)} : ${(time%60).toString().padStart(2,0)}`}</h1>;
+
+const Timer = (props) => {
+    const {session,shortBreak,longBreak} = props
+return (
+  <div>
+    <h1>{session}</h1>
+    <h1>{shortBreak}</h1>
+    <h1>{longBreak}</h1>
+  </div>
+);
 };
 export default Timer;

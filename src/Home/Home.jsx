@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+
 import HomePage from "./HomePage";
-import PomodoroClock from "../01-Pomodoro-Clock/PomodoroClock";
+import PomodoroClock from "../01-Pomodoro-Clock/pomodoroConnector";
 import ColorCycle from "../02-Color-Cycle/ColorCycle";
 import JsonCsv from "../03-JSON2CSV/JsonCsv";
 import QRCodeBadge from "../04-QRCode-Badge/QRCodeBadge";
@@ -12,8 +13,10 @@ import BooleBot from "../09-Boole-Bot-Game/BooleBot";
 import SpellIt from "../10-SpellIt/SpellIt";
 import Nav from "./Nav";
 
+
+
 const Home = () => {
-  const [project, setProject] = useState(0);
+  const [project, setProject] = useState(1);
   const projects = [
     <HomePage />,
     <PomodoroClock />,
@@ -30,7 +33,7 @@ const Home = () => {
   return (
     <div>
       <Nav project={project} setProject={setProject} />
-      {projects[project]}
+     {projects[project]}
     </div>
   );
 };
