@@ -1,24 +1,25 @@
 import {  createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
+
   session: 1500,
   shortBreak: 300,
   longBreak: 600,
   clock: 1500,
   sound: false,
-  cycle: 0,
+  cycle: 1,
   pause: false,
 };
 
 const reducers = {
-  toggleSound: (state) => {
+  toggleSound(state) {
     state.sound = !state.sound;
   },
-  togglePause: (state) => {
-    state.pause = !state.pause;
+  togglePause(state,{payload}) {
+    state.pause = payload;
   },
-  setPomodoroClock: (state, payload) => {
-    if (payload.cycle) {
+  setPomodoroClock(state, payload) {
+    if (payload) {
       state.cycle += 1;
     }
     if (state.cycle % 2 === 1) {
@@ -29,35 +30,41 @@ const reducers = {
       state.clock = state.shortBreak;
     }
   },
-  resetPomodoroClock: (state) => {
+  resetPomodoroClock(state) {
     state.cycle = 1;
-    state.clock = state.session;
+    state.session = 1500;
+    state.shortBreak = 300;
+    state.longBreak = 600;
+    state.clock = 1500;
+    state.pause = false;
   },
-  decrementClock: (state) => {
+  decrementClock(state) {
     state.clock -= 1;
   },
-  incrementSession: (state) => {
+  incrementSession(state) {
     state.session += 60;
+    state.clock = state.session;
   },
-  decrementSession: (state) => {
-    if (state.session >= 60) {
+  decrementSession(state) {
+    if (state.session > 60) {
       state.session -= 60;
+      state.clock = state.session;
     }
   },
-  incrementShort: (state) => {
+  incrementShort(state) {
     state.shortBreak += 60;
   },
-  decrementShort: (state) => {
-    if (state.shortBreak >= 60) {
+  decrementShort(state) {
+    if (state.shortBreak > 60) {
       state.shortBreak -= 60;
     }
   },
-  incrementLong: (state) => {
-    state.shortBreak += 60;
+  incrementLong(state) {
+    state.longBreak += 60;
   },
-  decrementLong: (state) => {
-    if (state.shortBreak >= 60) {
-      state.shortBreak -= 60;
+  decrementLong(state) {
+    if (state.longBreak > 60) {
+      state.longBreak -= 60;
     }
   },
 };
@@ -65,7 +72,7 @@ const reducers = {
 const PomodoroSlice = createSlice({
   name: "Pomodoro",
   initialState,
-  reducer: reducers,
+  reducers,
 }); 
 
 export const {

@@ -14,8 +14,7 @@ import {
   decrementLong,
 } from "./pomodoroslice";
 
-function mapStateToProps(state) {
-  return {
+const mapStateToProps = (state) =>({
     session: state.session,
     shortBreak: state.shortBreak,
     longBreak: state.longBreak,
@@ -23,21 +22,20 @@ function mapStateToProps(state) {
     sound: state.sound,
     cycle: state.cycle,
     pause: state.pause,
-  };
-}
-const mapDispatchToProps = (dispatch) => {
-  return {
-    toggleSound: () => dispatch(toggleSound),
-    togglePause: () => dispatch(togglePause),
-    setPomodoroClock: () => dispatch(setPomodoroClock),
-    resetPomodoroClock: () => dispatch(resetPomodoroClock),
-    decrementClock: () => dispatch(decrementClock),
-    incrementSession: () => dispatch(incrementSession),
-    decrementSession: () => dispatch(decrementSession),
-    incrementShort: () => dispatch(incrementShort),
-    decrementShort: () => dispatch(decrementShort),
-    incrementLong: () => dispatch(incrementLong),
-    decrementLong: () => dispatch(decrementLong),
-  };
-};
+  });
+
+const mapDispatchToProps = (dispatch) => ({
+    toggleSound: () => dispatch(toggleSound()),
+    togglePause: (data) => dispatch(togglePause(data)),
+    setPomodoroClock: (data) => dispatch(setPomodoroClock(data)),
+    resetPomodoroClock: () => dispatch(resetPomodoroClock()),
+    decrementClock: () => dispatch(decrementClock()),
+    incrementSession: () => dispatch(incrementSession()),
+    decrementSession: () => dispatch(decrementSession()),
+    incrementShort: () => dispatch(incrementShort()),
+    decrementShort: () => dispatch(decrementShort()),
+    incrementLong: () => dispatch(incrementLong()),
+    decrementLong: () => dispatch(decrementLong()),
+  });
+
 export default connect(mapStateToProps, mapDispatchToProps)(PomodoroClock);
