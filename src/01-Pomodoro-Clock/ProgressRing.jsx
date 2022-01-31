@@ -1,4 +1,4 @@
-const ProgressRing = (props) => {
+const ProgressRing = ({children,...props}) => {
   const { radius, stroke, progress } = props;
 
  const normalizedRadius = radius - stroke * 2;
@@ -9,7 +9,7 @@ const ProgressRing = (props) => {
   return (
     <svg height={radius * 2} width={radius * 2}>
       <circle
-        stroke="white"
+        stroke="#f13346"
         fill="transparent"
         strokeWidth={stroke}
         strokeDasharray={circumference + " " + circumference}
@@ -17,7 +17,9 @@ const ProgressRing = (props) => {
         r={normalizedRadius}
         cx={radius}
         cy={radius}
-      />
+      >
+      {children}
+      </circle>
     </svg>
   );
 };

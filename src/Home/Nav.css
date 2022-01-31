@@ -1,12 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap");
 :root{
     --primary-color:#8000FF;
 }
-* {
-  font-family: "Poppins", sans-serif;
-}
 .nav-bar {
   background: var(--primary-color);
+  width:100vw;
 }
 
 .nav-10-link {

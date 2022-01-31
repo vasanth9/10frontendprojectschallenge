@@ -1,20 +1,127 @@
-.pomodoro-timer{
-    font-size: 10vw;
-    color:green;
-    white-space: nowrap;
-    text-align: center;
+@import url("https://fonts.googleapis.com/css?family=Quicksand");
+.pomodoro-timer {
+  font-size: 10vw;
+  color: green;
+  white-space: nowrap;
+  text-align: center;
 }
-.pomo-card{
-    margin-top: 10vh;
-    margin-left: 20vw;
-    width: 60vw;
-    background-color: rgb(255, 255, 255);
+.pomo-card {
+  margin-top: 10vh;
+  margin-left: 20vw;
+  width: 60vw;
+  background-color: rgb(255, 255, 255);
 }
-.Timer-Container{
-    height: 50vh;
-    width: 400px;
-    background-color: orange;
-}
-.Circular-Progress{
+.Pomodoro-Div {
+  background-color: rgb(241, 51, 70);
+  height: 90vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
+  font-family: "Quicksand", sans-serif !important;
+}
+.Timer-Container {
+  height: 450px;
+  width: 400px;
+  color: rgb(241, 51, 70);
+  background-color: white;
+  border-radius: 50px;
+  padding: 2em 1.5em;
+  box-shadow: 0 2.8px 2.2px rgb(0 0 0 / 3%), 0 6.7px 5.3px rgb(0 0 0 / 5%),
+    0 12.5px 10px rgb(0 0 0 / 6%), 0 22.3px 17.9px rgb(0 0 0 / 7%),
+    -2px 17px 33.4px rgb(0 0 0 / 9%), 1px 7px 20px 2px rgb(0 0 0 / 12%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.timer-clock {
+  font-size: 50px;
+  font-weight: 400;
+  margin-top: 60px;
+}
+.circular-button {
+  padding: 1em;
+  border-radius: 50%;
+  margin: 0.5em;
+  color: rgb(241, 51, 70);
+  background-color: white;
+  border: none;
+  box-shadow: 0 2.8px 2.2px rgba(241, 51, 69, 0.0470588),
+    0 6.7px 5.3px rgba(241, 51, 69, 0.0470588),
+    0 12.5px 10px rgba(241, 51, 69, 0.0470588),
+    0 22.3px 17.9px rgba(241, 51, 69, 0.0470588),
+    -2px 17px 33.4px rgba(241, 51, 69, 0.0470588),
+    1px 7px 20px 2px rgba(241, 51, 69, 0.0470588);
+  transition: all 0.1s ease-in-out;
+}
+.circular-button-2 {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin: 0.5em;
+  color: rgb(241, 51, 70);
+  background-color: white;
+  border: none;
+  box-shadow: 0 2.8px 2.2px rgba(241, 51, 69, 0.0470588),
+    0 6.7px 5.3px rgba(241, 51, 69, 0.0470588),
+    0 12.5px 10px rgba(241, 51, 69, 0.0470588),
+    0 22.3px 17.9px rgba(241, 51, 69, 0.0470588),
+    -2px 17px 33.4px rgba(241, 51, 69, 0.0470588),
+    1px 7px 20px 2px rgba(241, 51, 69, 0.0470588);
+  transition: all 0.1s ease-in-out;
+  font-size: 30px;
+  font-weight: 1000;
+}
+svg {
+  height: 30px;
+  width: 30px;
+  overflow: visible;
+}
+.timer-circle {
+  width: 180px;
+  height: 180px;
+  margin: auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  background-color: rgb(241, 51, 70);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+   box-shadow: 0 2.8px 2.2px rgba(241, 51, 69, 0.0470588),
+    0 6.7px 5.3px rgba(241, 51, 69, 0.0470588),
+    0 12.5px 10px rgba(241, 51, 69, 0.0470588),
+    0 22.3px 17.9px rgba(241, 51, 69, 0.0470588),
+    -2px 17px 33.4px rgba(241, 51, 69, 0.0470588),
+    1px 7px 20px 2px rgba(241, 51, 69, 0.0470588);
+}
+.row-buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.span-pomodoro {
+  font-size: 30px;
+}
+.span-length {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 1em;
+}
+.circular-button-3{
+    width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin: 0.5em;
+  color: rgb(173, 173, 173);
+  background-color: white;
+  border: none;
+  box-shadow: none;
+  transition: all 0.1s ease-in-out;
+  font-size: 30px;
+  font-weight: 1000;
 }

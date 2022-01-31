@@ -4,9 +4,9 @@ import "./PomodoroClock.css";
 
 const PomodoroClock = (props) => {
   return (
-    <>
+    <div className="Pomodoro-Div">
     <Timer {...props} />
-    </>
+    </div>
   );
 };
 

@@ -1,12 +1,14 @@
 import React, { useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 // import { Button, Card, Col, Row } from "react-bootstrap";
-import ProgressRing from "./ProgressRing";
+import Play from './Play';
+import Pause from './Pause';
+import Reset from './Reset';
+
 const Timer = (props) => {
   const {
     session,
     shortBreak,
-    longBreak,
     clock,
     decrementClock,
     pause,
@@ -17,12 +19,10 @@ const Timer = (props) => {
     decrementSession,
     decrementShort,
     incrementShort,
-    decrementLong,
-    incrementLong,
   } = props;
   useEffect(() => {
     let intervalId;
-    console.log(Math.floor(((clock) / session) * 100));
+    console.log(Math.floor((clock / session) * 100));
     if (pause) {
       intervalId = setInterval(() => {
         decrementClock();
@@ -34,7 +34,7 @@ const Timer = (props) => {
     return () => {
       clearInterval(intervalId);
     };
-  }, [clock, decrementClock, pause, setPomodoroClock,session]);
+  }, [clock, decrementClock, pause, setPomodoroClock, session]);
 
   const handleStart = () => {
     togglePause(!pause);
@@ -45,47 +45,60 @@ const Timer = (props) => {
   };
   return (
     <div className="Timer-Container">
-      <ProgressRing radius={60} stroke={4} progress={Math.floor(((clock)/session)*100)} />
-      <p>
-        <button disabled={pause} onClick={() => decrementSession()}>
-          -
-        </button>
-        {`${Math.floor(session / 60)
+      <h2>React Pomodoro Clock</h2>
+      <div className="timer-circle">
+        <h1 className="timer-clock">{`${Math.floor(clock / 60)
           .toString()
-          .padStart(2, "0")}:${(session % 60).toString().padStart(2, "0")}`}
-        <button disabled={pause} onClick={() => incrementSession()}>
-          +
-        </button>
-      </p>
-      <p>
-        <button disabled={pause} onClick={() => decrementShort()}>
-          -
-        </button>
-        {`${Math.floor(shortBreak / 60)
-          .toString()
-          .padStart(2, "0")}:${(shortBreak % 60).toString().padStart(2, "0")}`}
-        <button disabled={pause} onClick={() => incrementShort()}>
-          +
-        </button>
-      </p>
-      <p>
-        <button disabled={pause} onClick={() => decrementLong()}>
-          -
-        </button>
-        {`${Math.floor(longBreak / 60)
-          .toString()
-          .padStart(2, "0")}:${(longBreak % 60).toString().padStart(2, "0")}`}
-        <button disabled={pause} onClick={() => incrementLong()}>
-          +
-        </button>
-      </p>
-      <div className="Circular-Progress">
-        <p>{`${Math.floor(clock / 60)
-          .toString()
-          .padStart(2, "0")}:${(clock % 60).toString().padStart(2, "0")}`}</p>
+          .padStart(2, "0")}:${(clock % 60).toString().padStart(2, "0")}`}</h1>
+        <div className="row-buttons">
+          <button onClick={handleStart} className="circular-button">
+            {pause ? <Pause /> : <Play />}
+          </button>
+          <button onClick={handleReset} className="circular-button">
+            <Reset />
+          </button>
+        </div>
       </div>
-      <button onClick={handleStart}>{pause ? "Pause" : "Start"}</button>
-      <button onClick={handleReset}>Reset</button>
+      <div>
+        <span className="span-length">Session Length</span>
+        <span className="span-length">Break Length</span>
+      </div>
+      <div>
+        <button
+          className={pause ? "circular-button-3" : "circular-button-2"}
+          disabled={pause}
+          onClick={() => decrementSession()}
+        >
+          -
+        </button>
+        <span className="span-pomodoro">{`${Math.floor(session / 60)
+          .toString()
+          .padStart(2, "0")}`}</span>
+        <button
+          className={pause ? "circular-button-3" : "circular-button-2"}
+          disabled={pause}
+          onClick={() => incrementSession()}
+        >
+          +
+        </button>
+        <button
+          className={pause ? "circular-button-3" : "circular-button-2"}
+          disabled={pause}
+          onClick={() => decrementShort()}
+        >
+          -
+        </button>
+        <span className="span-pomodoro">{`${Math.floor(shortBreak / 60)
+          .toString()
+          .padStart(2, "0")}`}</span>
+        <button
+          className={pause ? "circular-button-3" : "circular-button-2"}
+          disabled={pause}
+          onClick={() => incrementShort()}
+        >
+          +
+        </button>
+      </div>
     </div>
   );
 };
