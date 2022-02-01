@@ -1,19 +1,20 @@
 import {  createSlice } from "@reduxjs/toolkit";
-
+import constants from './constants';
 const initialState = {
-
   session: 1500,
   shortBreak: 300,
   longBreak: 600,
   clock: 1500,
   sound: false,
+  soundUrl:
+    "https://res.cloudinary.com/dmotk8y3k/video/upload/v1643726855/rain_p4hwqd.mp3",
   cycle: 1,
   pause: false,
 };
 
 const reducers = {
-  toggleSound(state) {
-    state.sound = !state.sound;
+  toggleSound(state,{payload}) {
+    state.sound = payload;
   },
   togglePause(state,{payload}) {
     state.pause = payload;
@@ -59,14 +60,9 @@ const reducers = {
       state.shortBreak -= 60;
     }
   },
-  incrementLong(state) {
-    state.longBreak += 60;
-  },
-  decrementLong(state) {
-    if (state.longBreak > 60) {
-      state.longBreak -= 60;
-    }
-  },
+  setSoundIndex(state,payload){
+    state.url = constants[payload];
+  }
 };
 
 const PomodoroSlice = createSlice({
@@ -87,6 +83,7 @@ export const {
   decrementShort,
   incrementLong,
   decrementLong,
+  setSoundIndex,
 } = PomodoroSlice.actions;
 
 export default PomodoroSlice.reducer;

@@ -1,17 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Quicksand");
-.pomodoro-timer {
-  font-size: 10vw;
-  color: green;
-  white-space: nowrap;
-  text-align: center;
-}
-.pomo-card {
-  margin-top: 10vh;
-  margin-left: 20vw;
-  width: 60vw;
-  background-color: rgb(255, 255, 255);
-}
+
 .Pomodoro-Div {
+  font-size: 1rem;
   background-color: rgb(241, 51, 70);
   height: 90vh;
   width: 100vw;
@@ -124,4 +114,8 @@ svg {
   transition: all 0.1s ease-in-out;
   font-size: 30px;
   font-weight: 1000;
+}
+.button-div-width{
+  width: 90em;
+  margin: auto;
 }
