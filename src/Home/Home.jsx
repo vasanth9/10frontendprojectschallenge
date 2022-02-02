@@ -16,7 +16,7 @@ import Nav from "./Nav";
 
 
 const Home = () => {
-  const [project, setProject] = useState(1);
+  const [project, setProject] = useState(2);
   const projects = [
     <HomePage />,
     <PomodoroClock />,
