@@ -32,6 +32,7 @@ for(let j in json){
   arr.push(json_arr.join().concat('\r\n'));
 }
 setCsv(arr.join(""));
+setJson(json);
 }
 
   return (
