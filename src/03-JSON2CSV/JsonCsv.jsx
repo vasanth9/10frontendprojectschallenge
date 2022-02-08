@@ -39,9 +39,10 @@ setCsv(arr.join(""));
       <textarea
         className="json-textarea"
         value={JSON.stringify(json, null, "\t")}
+        disabled
       />
 
-      <textarea className="json-textarea" value={csv} />
+      <textarea className="json-textarea" disabled value={csv} />
       <button onClick={convertJson}>Convert to Csv</button>
     </div>
   );
